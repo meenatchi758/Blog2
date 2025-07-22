@@ -1,0 +1,1 @@
+gunicorn bugtracker.wsgi:application
