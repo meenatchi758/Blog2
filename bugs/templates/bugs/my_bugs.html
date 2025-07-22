@@ -1,0 +1,28 @@
+{% extends 'bugs/base.html' %}
+
+{% block content %}
+<h2 class="mb-4">My Reported Bugs</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for bug in bugs %}
+        <tr>
+            <td>{{ bug.title }}</td>
+            <td>{{ bug.description }}</td>
+            <td>{{ bug.status }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">You haven't reported any bugs.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

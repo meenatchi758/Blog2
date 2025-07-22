@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Welcome to Bug Tracker</h2>
+<ul>
+    <li><a href="{% url 'submit_bug' %}">Submit Bug</a></li>
+    <li><a href="{% url 'my_bugs' %}">My Bugs</a></li>
+    <li><a href="{% url 'all_bugs' %}">All Bugs</a></li>
+</ul>
+{% endblock %}

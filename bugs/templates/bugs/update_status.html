@@ -1,0 +1,22 @@
+{% extends 'bugs/base.html' %}
+
+{% block content %}
+<h2 class="mb-4">Update Bug Status</h2>
+
+<h4>{{ bug.title }}</h4>
+<p>{{ bug.description }}</p>
+
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="status" class="form-label">Status:</label>
+        <select name="status" id="status" class="form-select">
+            <option value="Open" {% if bug.status == "Open" %}selected{% endif %}>Open</option>
+            <option value="In Progress" {% if bug.status == "In Progress" %}selected{% endif %}>In Progress</option>
+            <option value="Resolved" {% if bug.status == "Resolved" %}selected{% endif %}>Resolved</option>
+            <option value="Closed" {% if bug.status == "Closed" %}selected{% endif %}>Closed</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-success">Update Status</button>
+</form>
+{% endblock %}
